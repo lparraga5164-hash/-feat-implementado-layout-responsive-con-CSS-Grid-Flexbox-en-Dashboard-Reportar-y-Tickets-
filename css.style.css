@@ -1,0 +1,234 @@
+/* ==========================================================================
+   VARIABLES Y CONFIGURACIÓN BASE
+   ========================================================================== */
+:root {
+    --bg-principal: #f4f6f9;
+    --bg-componente: #ffffff;
+    --texto-color: #2d3748;
+    --primario: #3182ce;
+    --primario-hover: #2b6cb0;
+    --peligro: #e53e3e;
+    --exito: #38a169;
+    --borde-color: #e2e8f0;
+    --sidebar-width: 260px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-principal);
+    color: var(--texto-color);
+}
+
+/* ==========================================================================
+   LAYOUT PRINCIPAL (CSS GRID)
+   ========================================================================== */
+.contenedor-layout {
+    display: grid;
+    grid-template-columns: var(--sidebar-width) 1fr;
+    grid-template-rows: 60px 1fr;
+    grid-template-areas: 
+        "sidebar header"
+        "sidebar contenido";
+    min-height: 100vh;
+}
+
+/* Componente: Barra Lateral */
+.sidebar {
+    grid-area: sidebar;
+    background-color: #1a202c;
+    color: #fff;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.sidebar .logo {
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+    color: var(--primario);
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.sidebar nav a {
+    color: #a0aec0;
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.sidebar nav a.activo, .sidebar nav a:hover {
+    background-color: #2d3748;
+    color: #fff;
+}
+
+/* Componente: Header */
+.header-sistema {
+    grid-area: header;
+    background-color: var(--bg-componente);
+    border-bottom: 1px solid var(--borde-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+}
+
+/* Componente: Área de Contenido */
+.contenido-principal {
+    grid-area: contenido;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+/* ==========================================================================
+   COMPONENTES UI FLUIDOS (FLEXBOX)
+   ========================================================================== */
+/* Tarjetas de Métricas (Dashboard) */
+.grid-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.tarjeta-metrica {
+    background: var(--bg-componente);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 5px solid var(--primario);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Formularios Adaptables */
+.formulario-incidente {
+    background: var(--bg-componente);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.grupo-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.grupo-campo input, .grupo-campo textarea, .grupo-campo select {
+    padding: 0.75rem;
+    border: 1px solid var(--borde-color);
+    border-radius: 6px;
+    width: 100%;
+}
+
+/* Tablas/Listas Flexibles de Tickets */
+.contenedor-tickets {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.ticket-item {
+    background: var(--bg-componente);
+    padding: 1.2rem;
+    border-radius: 8px;
+    border: 1px solid var(--borde-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Permite romper fila si falta espacio */
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+.btn-primario { background: var(--primario); color: white; }
+.btn-primario:hover { background: var(--primario-hover); }
+
+/* ==========================================================================
+   MEDIA QUERIES (RESPONSIVE DESIGN)
+   ========================================================================== */
+
+/* Tablets y pantallas medianas (Menos de 992px) */
+@media (max-width: 992px) {
+    .contenedor-layout {
+        grid-template-columns: 70px 1fr; /* Reducimos la barra lateral a solo íconos o nombres cortos */
+    }
+    :root {
+        --sidebar-width: 70px;
+    }
+    .sidebar .logo span { display: none; } /* Ocultar texto largo del logo */
+}
+
+/* Dispositivos Móviles (Menos de 768px) */
+@media (max-width: 768px) {
+    
+    .contenedor-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr;
+        grid-template-areas: 
+            "header"
+            "sidebar"
+            "contenido";
+    }
+    
+    .sidebar {
+        padding: 0.5rem;
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .sidebar .logo { display: none; }
+    
+    .sidebar nav {
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-around;
+    }
+    
+    .sidebar nav a {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .header-sistema {
+        padding: 1rem;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .contenido-principal {
+        padding: 1rem;
+    }
+
+    .ticket-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

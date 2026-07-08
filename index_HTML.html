@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Incidentes - Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="contenedor-layout">
+        <aside class="sidebar">
+            <div class="logo">🚨 <span>IncidentApp</span></div>
+            <nav>
+                <a href="index.html" class="activo">📊 Dashboard</a>
+                <a href="reportar.html">➕ Reportar</a>
+                <a href="tickets.html">🎫 Tickets</a>
+            </nav>
+        </aside>
+
+        <header class="header-sistema">
+            <h2>Panel de Control General</h2>
+            <div class="usuario">Admin V.2026</div>
+        </header>
+
+        <main class="contenido-principal">
+            <section class="grid-tarjetas">
+                <div class="tarjeta-metrica" style="border-left-color: var(--peligro)">
+                    <div><h3>Tickets Abiertos</h3><p>14 Casos</p></div>
+                    <span>🔥</span>
+                </div>
+                <div class="tarjeta-metrica" style="border-left-color: var(--primario)">
+                    <div><h3>En Progreso</h3><p>5 Casos</p></div>
+                    <span>⚡</span>
+                </div>
+                <div class="tarjeta-metrica" style="border-left-color: var(--exito)">
+                    <div><h3>Resueltos Hoy</h3><p>22 Casos</p></div>
+                    <span>✅</span>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

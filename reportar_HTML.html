@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportar Incidente</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="contenedor-layout">
+        <aside class="sidebar">
+            <div class="logo">🚨 <span>IncidentApp</span></div>
+            <nav>
+                <a href="index.html">📊 Dashboard</a>
+                <a href="reportar.html" class="activo">➕ Reportar</a>
+                <a href="tickets.html">🎫 Tickets</a>
+            </nav>
+        </aside>
+
+        <header class="header-sistema">
+            <h2>Crear Nuevo Reporte de Incidente</h2>
+        </header>
+
+        <main class="contenido-principal">
+            <form class="formulario-incidente">
+                <div class="grupo-campo">
+                    <label>Título del Incidente</label>
+                    <input type="text" placeholder="Ej: Caída del servidor de base de datos" required>
+                </div>
+                <div class="grupo-campo">
+                    <label>Prioridad</label>
+                    <select>
+                        <option>Baja</option>
+                        <option>Media</option>
+                        <option>Crítica</option>
+                    </select>
+                </div>
+                <div class="grupo-campo">
+                    <label>Descripción detallada</label>
+                    <textarea rows="5" placeholder="Escriba los síntomas detectados..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primario">Enviar Reporte</button>
+            </form>
+        </main>
+    </div>
+</body>
+</html>

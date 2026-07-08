@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Tickets</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="contenedor-layout">
+        <aside class="sidebar">
+            <div class="logo">🚨 <span>IncidentApp</span></div>
+            <nav>
+                <a href="index.html">📊 Dashboard</a>
+                <a href="reportar.html">➕ Reportar</a>
+                <a href="tickets.html" class="activo">🎫 Tickets</a>
+            </nav>
+        </aside>
+
+        <header class="header-sistema">
+            <h2>Historial y Asignación de Tickets</h2>
+        </header>
+
+        <main class="contenido-principal">
+            <div class="contenedor-tickets">
+                <div class="ticket-item">
+                    <div>
+                        <strong>#TK-1024 - Error de Autenticación API</strong>
+                        <p style="font-size: 0.85rem; color:#718096;">Reportado hace 10 min por Soporte</p>
+                    </div>
+                    <span style="background: #fed7d7; color: #9b2c2c; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">CRÍTICO</span>
+                    <button class="btn btn-primario">Gestionar</button>
+                </div>
+
+                <div class="ticket-item">
+                    <div>
+                        <strong>#TK-1023 - Lentitud en reportes PDF</strong>
+                        <p style="font-size: 0.85rem; color:#718096;">Reportado hace 1 hora por Finanzas</p>
+                    </div>
+                    <span style="background: #feebc8; color: #9c4221; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">MEDIA</span>
+                    <button class="btn btn-primario">Gestionar</button>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
